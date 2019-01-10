@@ -1,0 +1,18 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: AIGou-ZUUL-GATEWAY
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
+zuul:
+  routes:
+   plat.serviceId: aigou-plat-service
+   plat.path: /plat/**
+  ignored-services: "*"
+  prefix: "/services"
